@@ -1,9 +1,10 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import { useMoralis } from "react-moralis";
+import Header from "../components/Header";
 
 export default function Home() {
-	const { isAuthenticated } = useMoralis();
+	const { isAuthenticated, authenticate, user, logout } = useMoralis();
 	if (!isAuthenticated) {
 		return (
 			<>
@@ -21,7 +22,12 @@ export default function Home() {
 					<Text fontSize="5xl" fontWeight="bold" color="white">
 						musicThoughts
 					</Text>
-					<Button colorScheme="teal" size="lg" mt="6">
+					<Button
+						colorScheme="teal"
+						size="lg"
+						mt="6"
+						onClick={() => authenticate({})}
+					>
 						Login with Metamask
 					</Button>
 				</Flex>
@@ -29,5 +35,14 @@ export default function Home() {
 		);
 	}
 
-	return <div>Hello world</div>;
+	return (
+		<>
+			<Head>
+				<title>musicThoughts</title>
+			</Head>
+			<Flex>
+				<Header user={user} logout={logout} />
+			</Flex>
+		</>
+	);
 }

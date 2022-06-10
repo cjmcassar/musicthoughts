@@ -18,8 +18,12 @@ export default function Home() {
 					height="100vh"
 					bgGradient="linear(to-br, teal.400, purple.300)"
 				>
-					<Text>musicThoughts</Text>
-					<Button>Login with Metamask</Button>
+					<Text fontSize="5xl" fontWeight="bold" color="white">
+						musicThoughts
+					</Text>
+					<Button colorScheme="teal" size="lg" mt="6">
+						Login with Metamask
+					</Button>
 				</Flex>
 			</>
 		);

@@ -4,7 +4,8 @@ import { useMoralis } from "react-moralis";
 import Header from "../components/Header";
 
 export default function Home() {
-	const { isAuthenticated, authenticate, user, logout } = useMoralis();
+	const { isAuthenticated, authenticate, user, logout, isLoggingOut } =
+		useMoralis();
 	if (!isAuthenticated) {
 		return (
 			<>
@@ -26,7 +27,11 @@ export default function Home() {
 						colorScheme="teal"
 						size="lg"
 						mt="6"
-						onClick={() => authenticate({})}
+						onClick={() =>
+							authenticate({
+								signingMessage: "Sign to login to musicThoughts",
+							})
+						}
 					>
 						Login with Metamask
 					</Button>
@@ -40,8 +45,8 @@ export default function Home() {
 			<Head>
 				<title>musicThoughts</title>
 			</Head>
-			<Flex>
-				<Header user={user} logout={logout} />
+			<Flex direction="column" width="100vw" height="100vh">
+				<Header user={user} logout={logout} isLoggingOut={isLoggingOut} />
 			</Flex>
 		</>
 	);

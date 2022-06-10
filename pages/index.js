@@ -10,7 +10,14 @@ export default function Home() {
 				<Head>
 					<title>Login | musicThoughts</title>
 				</Head>
-				<Flex>
+				<Flex
+					direction="column"
+					justifyContent="center"
+					alignItems="center"
+					width="100vw"
+					height="100vh"
+					bgGradient="linear(to-br, teal.400, purple.300)"
+				>
 					<Text>musicThoughts</Text>
 					<Button>Login with Metamask</Button>
 				</Flex>
